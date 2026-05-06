@@ -1,6 +1,17 @@
 # requirements.txt
 
+# 文档处理
 python-docx
 openpyxl
 PyPDF2
 python-pptx
+
+# Windows驱动检测
+pywin32
+
+# 图片处理（可选）
+Pillow
+
+# OCR识别（可选，用于图片中文字识别）
+# paddlepaddle
+# paddleocr

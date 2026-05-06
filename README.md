@@ -1,18 +1,50 @@
-# Remove '内部' from First Line Tool
+# 全盘文档批量去除首行'内部'工具 v3.0
 
-本工具为Python命令行脚本，递归扫描全盘（所有磁盘）下的txt、docx、xlsx、pdf、ppt/pptx文件，将每个文件第一行中的“内部”两个字删除，并覆盖原文件。
+递归扫描全盘（所有磁盘）下的文档和图片文件，将每个文件首行中的"内部"两个字删除。
+
+## 支持格式
+
+### 文档格式
+- Word (.docx)
+- Excel (.xlsx)
+- PDF (.pdf)
+- PowerPoint (.ppt/.pptx)
+- 文本文件 (.txt)
+- CSV表格 (.csv)
+- Markdown (.md)
+- RTF富文本 (.rtf)
+
+### 图片格式（需OCR）
+- JPEG (.jpg/.jpeg)
+- PNG (.png)
+- BMP (.bmp)
+- TIFF (.tiff/.tif)
+- WebP (.webp)
 
 ## 使用方法
-1. 安装依赖：
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. 运行脚本（需管理员权限）：
-   ```bash
-   python main.py
-   ```
+
+### 方式一：直接运行EXE
+1. 下载 `RemoveInternal.exe`
+2. 右键以管理员身份运行
+3. 等待扫描完成
+4. 结果保存在 `changed_files.csv`
+
+### 方式二：Python源码运行
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+### 指定目录
+```bash
+python main.py --dir C:/Users/michael/Documents
+```
 
 ## 注意事项
-- 需以管理员权限运行，确保有权限访问所有磁盘。
-- 建议先备份重要文件。
-- 处理后文件不可恢复。
+- 需以管理员权限运行
+- 建议先备份重要文件
+- 自动跳过系统目录和网盘目录
+- 图片处理需要安装 PaddleOCR
+
+## 输出
+- `changed_files.csv` - 被修改的文件列表
